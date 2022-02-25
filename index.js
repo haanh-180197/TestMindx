@@ -4,15 +4,20 @@ const cOne = document.querySelector(`.cOne`);
 // cach 1
 // const n = document.querySelector(`input[name="n"]`);
 // const opNumber = document.querySelector(`input[name="OppositeNumber"]`);
-
+const result = document.querySelector(`.result`)
 const opNumberIndex = document.querySelector(`.input`);
 cOne.addEventListener(`click`, (e)=>{
     e.preventDefault();
     const n = Number(document.querySelector(`input[name="n"]`).value);
     const opNumber = Number(document.querySelector(`input[name="OppositeNumber"]`).value);
-    if(opNumber >= 0 && opNumber <= n-1){    
-        console.log(findNumber(n, opNumber));
+    if(opNumber >= 0 && opNumber <= n-1){ 
+        result.innerHTML = ``   
         opNumberIndex.innerHTML = ``;
+        const newElement = document.createElement(`div`);
+        newElement.innerHTML =`
+        <p class="red">${findNumber(n, opNumber)}</p>
+        `
+        result.appendChild(newElement);
     }else{
         opNumberIndex.innerHTML = ``;
         const newElement = document.createElement(`div`);
@@ -35,7 +40,7 @@ const findNumber = (n, a)=>{
 
 //  B
 const cTwo = document.querySelector(`.cTwo`);
-
+const result2 = document.querySelector(`.result2`)
 cTwo.addEventListener(`click`, (e)=>{
     e.preventDefault();
     const string1 = document.querySelector(`input[name="string1"]`).value;
@@ -44,5 +49,10 @@ cTwo.addEventListener(`click`, (e)=>{
     for(let i =0; i < 10; i++ ){
         endString = `${endString}${string1.charAt(i)}${string2.charAt(i)}` 
     }
-    console.log(endString);
+    result2.innerHTML =``;
+    const newElement = document.createElement(`div`);
+    newElement.innerHTML =`
+    <p class="red">${endString}</p>
+    `
+    result2.appendChild(newElement);
 })
